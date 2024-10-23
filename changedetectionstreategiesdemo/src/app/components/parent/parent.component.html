@@ -1,0 +1,9 @@
+<div id="parentComponent">
+    <div class="h-50">
+        {{ primitiveVariable }}
+        {{ nonPrimitiveVariable.text }}
+        <button (click)="updateValues()">Update Values</button>
+    </div>
+    
+    <app-child [primitiveValFromParent]="childTextVal" [nonPrimitiveValFromParent]="nonPrimitivePassedFromParent"></app-child>
+</div>

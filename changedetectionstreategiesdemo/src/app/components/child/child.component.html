@@ -1,0 +1,9 @@
+<div>
+    {{ primitiveVariableOfChild }}
+    {{ nonPrimitiveVariableOfChild.text }}
+
+    <div>Primitive value from parent: {{ primitiveValFromParent }}</div>
+    <div>Non-Primitive value from parent: {{ nonPrimitiveValFromParent['numberVal'] }}</div>
+    <div>Data fetched from service: {{ dataService.getMyData() | async }}</div>
+    <button (click)="updateValue()">Update Child Value</button>
+</div>
