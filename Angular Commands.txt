@@ -1,0 +1,53 @@
+/////////////////////////Advantages of Mono-workspace///////////////////////////////
+
+- less space is occupied as there are common folders shared among different projects such as assets, node-modules etc.
+
+////////////////////////Creating mono-workspace for single repo demo////////////////////////////////////
+
+//1.
+
+// create mono workspace (Not an application) (For older angular versions)
+ng new mono-workspace --createApplication='false'
+// for newer angular versions
+ng new mono-workspace --no-create-application
+
+//2. - create applications (projects) named host-app & mfe-app
+
+ng g application host-app --routing --style=scss
+
+//3. - Running an application in mono-workspace
+
+ng s host-app
+ng s mfe-app (in another terminal)
+
+//4. Adding webpack, webpack-cli & module-federation
+
+npm i webpack@5.74 webpack-cli@4.10 --save-dev // version above this having some issues with compilation so use this for stability
+ng add @angular-architects/module-federation -project host-app --port 4200
+ng add @angular-architects/module-federation -project mfe-app --port 4200
+
+//5. Add componenents in host-app from mono-workspace
+
+ng g c home --project=host-app (Smae for other componenents)
+
+
+
+/////////////////////////////////////////////Notes////////////////////////////////////////////
+
+
+-> For MicroFrontEnd in angular - we use model fedaraton feature of webpack5, so install that in mono-workspacem, inside mono-workspace folder
+
+- npm i webpack webpack-cli --save-dev (as dependency is only for development time)
+
+-> Adding module feeration in host-app
+
+- ng add @angular-architects/module-federation -project host-app --port 4200
+
+
+
+Revise--------------------------
+
+- pathMatch values
+- viewchildren
+- ng-content
+- sharereplay
